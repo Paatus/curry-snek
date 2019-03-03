@@ -17,7 +17,7 @@ The first step is to fork the repository. This will create a clone of this repos
 Then clone the repo to get the local files:
 
 ```
-git clone https://github.com/Rewbert/starter-snake-haskell.git
+git clone https://github.com/<YOUR GITHUB USERNAME>/starter-snake-haskell.git
 ```
 
 ### 2: Installing requirements
