@@ -14,7 +14,7 @@ import Control.Monad.Trans
 data Pos = Pos { posobject :: !String
                , x         :: Int
                , y         :: Int}
-               deriving Show
+               deriving (Eq, Show)
 
 instance FromJSON Pos where
   parseJSON (Object v) =
@@ -37,7 +37,7 @@ data Snake = Snake { body        :: [Pos]
                    , name        :: !String
                    , snakeobject :: !String}
            --      , snaketaunt  :: !String } -- does not work properly
-                   deriving Show
+                   deriving (Eq, Show)
 
 instance FromJSON Snake where
   parseJSON (Object v) =
@@ -114,9 +114,7 @@ getyou gs = (posToPosition (head body), map posToPosition body, health, sid)
 -- | Input:  GameState
 --   Output: A list of Snek, representing all other snakes (not including yours)
 getsnakes :: GameState -> [Snek]
-getsnakes gs = filter (\(_,_,_,s1) -> let (_,_,_,s2) = getyou gs
-                                      in  s1 == s2) 
-               $ map snaketosnek (snakes gs)
+getsnakes gs = filter (/= getyou gs) $ map snaketosnek (snakes gs)
   where snaketosnek (Snake body health sid _ _ ) =
           (posToPosition (head body),map posToPosition body, health, sid)
 
