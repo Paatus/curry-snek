@@ -1,10 +1,10 @@
-name:                haskell-starter-snake
-version:             0.1.0.0
-github:              "githubuser/haskell-starter-snake"
+name:                starter-snake-haskell
+version:             0.1.0.1
+github:              "rewbert/starter-snake-haskell"
 license:             BSD3
-author:              "Author name here"
-maintainer:          "example@example.com"
-copyright:           "2019 Author name here"
+author:              "Robert Krook"
+maintainer:          "guskrooro@student.gu.se"
+copyright:           "2019 Robert Krook"
 
 extra-source-files:
 - README.md
@@ -17,18 +17,23 @@ extra-source-files:
 # To avoid duplicated efforts in documentation and dealing with the
 # complications of embedding Haddock markup inside cabal files, it is
 # common to point users to the README.md file.
-description:         Please see the README on GitHub at <https://github.com/githubuser/haskell-starter-snake#readme>
+description:         Please see the README on GitHub at <https://github.com/githubuser/starter-snake-haskell#readme>
 
 dependencies:
 - base >= 4.7 && < 5
 - scotty
 - mtl
+- aeson
+- text
+- http-types
+- bytestring
+
 
 library:
   source-dirs: src
 
 executables:
-  haskell-starter-snake-exe:
+  starter-snake-haskell-exe:
     main:                Main.hs
     source-dirs:         app
     ghc-options:
@@ -36,10 +41,10 @@ executables:
     - -rtsopts
     - -with-rtsopts=-N
     dependencies:
-    - haskell-starter-snake
+    - starter-snake-haskell
 
 tests:
-  haskell-starter-snake-test:
+  starter-snake-haskell-test:
     main:                Spec.hs
     source-dirs:         test
     ghc-options:
@@ -47,4 +52,4 @@ tests:
     - -rtsopts
     - -with-rtsopts=-N
     dependencies:
-    - haskell-starter-snake
+    - starter-snake-haskell

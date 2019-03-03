@@ -1,3 +1,4 @@
 .stack-work/
-haskell-starter-snake.cabal
+starter-snake-haskell.cabal
 *~
+*.swp
