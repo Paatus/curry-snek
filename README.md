@@ -14,6 +14,12 @@ The first step is to fork the repository. This will create a clone of this repos
 
 ![image broken](https://github.com/Rewbert/starter-snake-haskell/blob/master/image/fork.png "Forking the repository")
 
+Then clone the repo to get the local files:
+
+```
+git clone https://github.com/Rewbert/starter-snake-haskell.git
+```
+
 ### 2: Installing requirements
 
 The only requirement is a __1.7.1__ version or newer of the Haskell build tool 
@@ -43,7 +49,7 @@ stack --version
 
 ### 3: Building and running the snake
 
-The code can be compiled by running:
+The code can be compiled by running (in the project directory):
 
 ```
 stack build
