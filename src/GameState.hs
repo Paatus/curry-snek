@@ -45,14 +45,14 @@ data Snake = Snake
     } deriving (Show, Eq)
 
 data Game = Game
-    { gameIDGame :: Text
-    , rulesetGame :: Ruleset
-    , timeoutGame :: Int
+    { gameID :: Text
+    , ruleset :: Ruleset
+    , timeout :: Int
     } deriving (Show)
 
 data Ruleset = Ruleset
-    { nameRuleset :: Text
-    , versionRuleset :: Text
+    { rulesetName :: Text
+    , version :: Text
     } deriving (Show)
 
 decodeTopLevel :: ByteString -> Maybe GameState

@@ -26,3 +26,14 @@ instance ToJSON InfoResponse where
           , "tail" .= tail
           , "version" .= version
         ]
+
+snakeConfig :: InfoResponse
+snakeConfig = InfoResponse "1"             -- apiversion
+                           "Paatus"        -- author
+                           "#641E16"       -- color
+                           "pixel"         -- head
+                           "pixel"         -- tail
+                           "0.0.1"         -- version
+
+getInfo :: ActionM ()
+getInfo = Web.Scotty.json snakeConfig

@@ -1,6 +1,6 @@
 module Main where
 
-import Snake
+import Server (run)
 
 main :: IO ()
-main = ex
+main = run
