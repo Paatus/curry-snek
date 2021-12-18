@@ -10,27 +10,27 @@ import Control.Monad
 
 import System.Environment
 import Data.Maybe
-import Text.Read
+import Text.Read hiding (get)
 
-import Start
+import Info
 import Move
 import End
 
 -- See Start.hs for different snake configuration options.
 -- Not super important, but perhaps it is nice to change the color.
-snakeConfig :: StartResponse
-snakeConfig = StartResponse "#641E16"        -- color
-                            "A0F000"         -- backup-color
-                            "haskell > java" -- name
-                            "pixel"          -- head type
-                            "pixel"          -- tail type
+snakeConfig :: InfoResponse
+snakeConfig = InfoResponse "1"             -- apiversion
+                           "Paatus"        -- author
+                           "#641E16"       -- color
+                           "pixel"         -- head
+                           "pixel"         -- tail
+                           "0.0.1"         -- version
 
 ex = do
   inp <- liftIO $ lookupEnv "PORT"
   let port = read (fromMaybe "8080" inp) :: Int
   scotty port $ do
-    post "/start" $ postStart snakeConfig
+    get "/" $ Web.Scotty.json snakeConfig
     post "/move" postMove
     post "/end" postEnd
-    post "/ping" $ status (Status 200 "")
 

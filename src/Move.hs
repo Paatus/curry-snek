@@ -10,11 +10,9 @@ import Data.Maybe
 import Data.Aeson.Types (emptyObject)
 import Data.ByteString.Lazy (ByteString)
 
-import Start
-
 import Control.Monad.Trans
 
-data MoveResponse = MoveResponse { move :: Action }
+newtype MoveResponse = MoveResponse { move :: Action }
 
 instance ToJSON MoveResponse where
   toJSON (MoveResponse move) = object [ "move" .= move ]
@@ -68,7 +66,7 @@ getyou :: GameState -> Snake
 getyou = GameState.you
 
 -- | Input:  GameState
---   Output: A list of Snek, representing all other snakes (not including yours)
+--   Output: A list of Snake, representing all other snakes (not including yours)
 getsnakes :: GameState -> [Snake]
 getsnakes gs = filter (/= getyou gs) $ snakes (board gs)
 

@@ -10,8 +10,6 @@ import Data.Maybe
 import Data.Aeson.Types (emptyObject)
 import Data.ByteString.Lazy (ByteString)
 
-import Start
-
 import Control.Monad.Trans
 
 data GameState = GameState
